@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 import uuid
 import threading
-import time
 import model
 
 app = Flask(__name__)
@@ -40,9 +39,6 @@ def predict():
         return jsonify({"result": result}), 200
 
 def process_async_task(prediction_id, input_data):
-    # Simulate a delay (as in the mock model)
-    time.sleep(10)  # Simulate model processing time
-    
     # Process the model prediction (using the mock function)
     result = model.mock_model_predict(input_data)
     
