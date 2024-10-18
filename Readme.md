@@ -56,6 +56,7 @@ This project demonstrates the setup and optimization of a simple Flask web appli
 To build the Docker image, open a terminal or command prompt and navigate to the project directory (where the `Dockerfile` is located). Run the following command:
 
 `docker build -t flask-app .`
+
 ---
 
 ## Running the app
