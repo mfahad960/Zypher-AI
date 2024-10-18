@@ -49,7 +49,6 @@ This project demonstrates the setup and optimization of a simple Flask web appli
 
 - **Docker** must be installed and running on your local machine.
 - **Python 3.x** must be installed on your local machine if you wish to run the app outside Docker.
-- **requirements.txt** provided in case the required external packages are not installed.
 
 ### 1. Build the Docker Image
 
