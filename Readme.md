@@ -61,5 +61,5 @@ docker build -t flask-app .
 
 ## Running the app
 
-```
+```bash
 docker run -p 8080:8080 flask-app
