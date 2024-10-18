@@ -61,4 +61,6 @@ To build the Docker image, open a terminal or command prompt and navigate to the
 
 ## Running the app
 
+To run the Docker image, open a terminal or command prompt and navigate to the project directory (where the `Dockerfile` is located). Run the following command:
+
 `docker run -p 8080:8080 flask-app`

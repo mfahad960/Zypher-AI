@@ -12,7 +12,6 @@ prediction_results = {}
 @app.route("/predict", methods=['POST'])
 def predict():
     input_data = "Sample input data for the model"
-    async_mode = 'false'
     
     # Check for the Async-Mode header
     async_mode = request.headers.get('Async-Mode', '').lower() == 'true'
@@ -34,12 +33,12 @@ def predict():
         }), 202
 
     else:
-        # If Async-Mode is not set, process synchronously
+        # If Async-Mode is not requested, process synchronously
         result = model.mock_model_predict(input_data)
         return jsonify({"result": result}), 200
 
 def process_async_task(prediction_id, input_data):
-    # Process the model prediction (using the mock function)
+    # Process the model prediction (by invoking the the mock function)
     result = model.mock_model_predict(input_data)
     
     # Store the result in the in-memory dictionary
@@ -59,11 +58,11 @@ def get_prediction_result(prediction_id):
         # If the task is still being processed, return 400 Bad Request
         return jsonify({"error": "Prediction is still being processed."}), 400
     
-    # If the task is completed, return the result
+    # If the task is completed, return the result with Code 200
     return jsonify({
         "prediction_id": prediction_id,
         "output": result["output"]
     }), 200
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080)
