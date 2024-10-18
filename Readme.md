@@ -27,11 +27,9 @@ This project demonstrates the setup and optimization of a simple Flask web appli
    - Tested the app using the Invoke-WebRequest command in windows powershell.
    - Synchronous mode request can be made by accessing the localhost with port 8080 directly.
    - Asynchronous Mode POST:
-    `Invoke-WebRequest -Uri http://localhost:8080/predict -Method POST -Headers @{"Async-Mode" = "true"} | ConvertFrom-Json 
-    |  ConvertTo-Json -Depth 5`
+    `Invoke-WebRequest -Uri http://localhost:8080/predict -Method POST -Headers @{"Async-Mode" = "true"} | ConvertFrom-Json | ConvertTo-Json -Depth 5`
    - Asynchronous Mode GET:
-    `Invoke-WebRequest -Uri http://localhost:8080/predict/<prediction id returned by the post request command> -Method GET | ConvertFrom-Json 
-    |  ConvertTo-Json -Depth 5`
+    `Invoke-WebRequest -Uri http://localhost:8080/predict/<prediction id returned by the post request command> -Method GET | ConvertFrom-Json | ConvertTo-Json -Depth 5`
    - Used Docker to containerize the application, ensuring the app can be run in different environments.
 
 ---
@@ -59,3 +57,9 @@ To build the Docker image, open a terminal or command prompt and navigate to the
 
 ```bash
 docker build -t flask-app .
+
+
+## Running the app
+
+```
+docker run -p 8080:8080 flask-app
